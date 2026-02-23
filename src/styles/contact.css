@@ -1,0 +1,163 @@
+/* =========================
+   CONTACT PAGE BASE
+   ========================= */
+.contact-page {
+  position: relative;
+  background-color: #020617;
+  min-height: 100vh;
+  padding: 140px 0;
+  color: white;
+  overflow: hidden;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.contact-tag {
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.contact-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-title span {
+  color: #38bdf8;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.contact-desc {
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* =========================
+   CONTACT GRID & CARDS
+   ========================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.contact-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  padding: 40px;
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.contact-card.wide {
+  grid-column: span 2; /* Makes the email card take the full width */
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Icons & Content */
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-card.wide .contact-icon {
+  margin-bottom: 0;
+  margin-right: 30px;
+}
+
+.contact-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #f1f5f9;
+}
+
+.contact-info p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.contact-link-btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.contact-card.wide .contact-link-btn {
+  margin-top: 0;
+}
+
+.contact-link-btn:hover {
+  background: #38bdf8;
+  color: #020617;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Shared Grid Background */
+.bg-grid-layer {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 85%);
+  z-index: 1;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-card.wide {
+    grid-column: span 1;
+    flex-direction: column;
+    text-align: center;
+  }
+  .contact-card.wide .contact-icon {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .contact-card.wide .contact-link-btn {
+    margin-top: 20px;
+  }
+}

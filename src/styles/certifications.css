@@ -1,0 +1,214 @@
+/* =========================
+   CERTIFICATIONS PAGE
+========================= */
+
+.certifications-page {
+  position: relative;
+  background-color: #020617;
+  color: white;
+
+  /* ❌ REMOVED min-height: 100vh */
+  width: 100%;
+  padding: 120px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Background grid – FIXED */
+.bg-grid-layer {
+  position: absolute;   /* 🔥 FIXED (was fixed) */
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black, transparent 85%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Main container */
+.certifications-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 2; /* ensures content stays above grid */
+}
+
+/* Header */
+.cert-header-content {
+  text-align: left;
+  margin-bottom: 80px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.certifications-tag {
+  letter-spacing: 4px;
+  font-size: 0.7rem;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.certifications-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.certifications-title span {
+  color: #38bdf8;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.certifications-desc {
+  max-width: 650px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   WIDE CARD DESIGN
+========================= */
+
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cert-card-wide {
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  align-items: center;
+  padding: 30px 40px;
+
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cert-card-wide:hover {
+  transform: scale(1.01) translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Badge */
+.cert-badge {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.badge-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Main info */
+.cert-main-info h3 {
+  font-size: 1.4rem;
+  color: #f1f5f9;
+  margin: 4px 0;
+}
+
+.cert-category {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #38bdf8;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.issuer-name {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Action area */
+.cert-action-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.cert-year {
+  font-family: monospace;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.cert-view-link {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+
+  transition: 0.3s;
+}
+
+.cert-view-link:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: white;
+  border-color: #38bdf8;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .cert-card-wide {
+    grid-template-columns: 60px 1fr;
+    padding: 25px;
+  }
+
+  .cert-action-area {
+    grid-column: span 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .certifications-title {
+    font-size: 2.8rem;
+  }
+}

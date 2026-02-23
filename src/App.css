@@ -1,0 +1,125 @@
+/* =========================
+   GLOBAL BODY STYLES
+   ========================= */
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  color: #e5e7eb;
+
+  /* Animated gradient background */
+  background: linear-gradient(
+    -45deg,
+    #020617,
+    #020024,
+    #0f172a,
+    #020617
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+  overflow-x: hidden;
+}
+
+.home-hero {
+  padding-top: 70px; /* same as navbar height */
+}
+
+
+/* =========================
+   GLOW OVERLAY
+   ========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(14,165,233,0.15), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================
+   FLOATING PARTICLES
+   ========================= */
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particles span {
+  position: absolute;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(56, 189, 248, 0.6);
+  border-radius: 50%;
+  animation: rise linear infinite;
+}
+
+/* Smaller secondary particles */
+.particles span:nth-child(odd) {
+  width: 4px;
+  height: 4px;
+  background: rgba(14, 165, 233, 0.4);
+}
+
+/* Animation */
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Particle positions & speeds */
+.particles span:nth-child(1)  { left: 5%;  animation-duration: 18s; }
+.particles span:nth-child(2)  { left: 12%; animation-duration: 22s; }
+.particles span:nth-child(3)  { left: 20%; animation-duration: 16s; }
+.particles span:nth-child(4)  { left: 28%; animation-duration: 26s; }
+.particles span:nth-child(5)  { left: 36%; animation-duration: 20s; }
+.particles span:nth-child(6)  { left: 44%; animation-duration: 24s; }
+.particles span:nth-child(7)  { left: 52%; animation-duration: 19s; }
+.particles span:nth-child(8)  { left: 60%; animation-duration: 28s; }
+.particles span:nth-child(9)  { left: 68%; animation-duration: 21s; }
+.particles span:nth-child(10) { left: 76%; animation-duration: 17s; }
+.particles span:nth-child(11) { left: 84%; animation-duration: 23s; }
+.particles span:nth-child(12) { left: 92%; animation-duration: 19s; }
+.particles span:nth-child(n+13) {
+  left: calc(100% * var(--i) / 50);
+  animation-duration: calc(15s + (var(--i) * 0.5s));
+}
+
+/* =========================
+   GRADIENT BACKGROUND ANIMATION
+   ========================= */
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
